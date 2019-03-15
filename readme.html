@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<p>极火网服务器端开发</p>
+<ol>
+<li>kao2</li>
+</ol>
+<pre class="hljs"><code><div>初始化项目
+koa2 GithuoServer
+</div></code></pre>
+<ol start="2">
+<li>
+<p>删除views和app.js里不需要的文件和代码</p>
+</li>
+<li>
+<p>在bin目录下修改www文件里的端口号 8080</p>
+</li>
+<li>
+<p>安装需要的包</p>
+<ul>
+<li>koa-cors: 解决前后端分离之后,跨域问题</li>
+<li>mongodb: 连接mongodb服务器</li>
+<li>mongoose: 封装mongodb的方法</li>
+<li>npm i koa-cors mongodb mongoose</li>
+</ul>
+</li>
+<li>
+<p>连接数据库</p>
+<ol>
+<li>启动数据库,在命令行中输入 sudo mongod 然后输入密码,既可以启动.如果没有mongod命令,可以到mongodb的安装目录下找到mongod的命令</li>
+<li>nodejs连接mongodb
+<ol>
+<li>在项目根目录下.创建基础配置文件 mongodb.conf.js文件</li>
+</ol>
+<pre class="hljs"><code><div>    const mongoose = require(&quot;mongoose&quot;);
+    mongoose.Promise = global.Promise;
+    mongoose.connect('mongodb://localhost:27017/githuo',{useNewUrlParser:true},(err)=&gt;{
+        if(err){
+            console.log(&quot;连接失败&quot;);
+        }else{
+            console.log(&quot;数据库连接成功&quot;);
+        }
+    })
+
+    //导出mongoose的Schema构造函数
+    const Schema = mongoose.Schema;
+    module.exports = Schema;
+</div></code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>在根目录下创建以下目录
+GithuoServer
+-- mvc
+-- models  创建数据对象
+-- controllers 控制器,负责控制服务器业务逻辑和数据库打交道</p>
+</li>
+<li>
+<p>定义文章接口,增删改查</p>
+<ol>
+<li>在models目录中目录中新增文件 articleModel.js</li>
+</ol>
+<pre class="hljs"><code><div>    const Schema = require(&quot;../../mongodb.conf&quot;);
+    const mongoose = require(&quot;mongoose&quot;);
+    /**
+        title: 标题
+        pubDate: 日期
+        authore: 作者
+        content: 文章内容
+        category: 文章分类
+        isPublished: 是否已经发布,前端页面根据这个属性来获取显式已经发布的文章,未发布的文章则不显式在界面上
+        tags: 根据文章填写内容填写.有哪些标签比如 javascript,vue,angular之类
+    */ 
+    var articleSchema = new Schema({
+        title: String,
+        pubDate: String,
+        authore: String,
+        content: {
+            type: String,
+            default: ''
+        },
+        isPublished: Boolean,
+        tags: Array,
+        category: String,
+    })
+
+    module.exports = mongoose.model('article',articleSchema);
+</div></code></pre>
+<ol start="2">
+<li>在controllers目录下,新增文件 articleController.js</li>
+</ol>
+<pre class="hljs"><code><div>    //导入文章的model
+    var articleModel = require('../models/articleModel');
+    //新增文章
+    exports.addNewArticle = async (ctx)=&gt;{
+        console.log(&quot;新增文章&quot;);
+    }
+
+    //查询文章
+    exports.findArticle = async (ctx)=&gt;{
+        console.log(&quot;查询文章&quot;);
+        ctx.body = &quot;查询文章&quot;;
+    }
+
+    //删除文章
+    exports.findArticle = async (ctx)=&gt;{
+        console.log(&quot;删除文章&quot;);
+    }
+
+    //修改文章
+    exports.updateArticle = async (ctx)=&gt;{
+        console.log(&quot;修改文章&quot;);
+    }
+</div></code></pre>
+</li>
+<li>
+<p>将路由和文章接口进行关联</p>
+<ol>
+<li>在routes目录下创建 article.js文件</li>
+</ol>
+<pre class="hljs"><code><div>    const mongoose = require(&quot;mongoose&quot;);
+    const router = require(&quot;koa-router&quot;)();
+    const articleController = require(&quot;../mvc/controllers/articleController&quot;);
+
+    //通过http://localhost:3000/addNewArticle 访问新增文章的接口,其他接口以此类推
+    router.post(&quot;/addNewArticle&quot;,articleController.addNewArticle);
+    router.post(&quot;/deleteArticle&quot;,articleController.deleteArticle);
+    router.post(&quot;/updateArticle&quot;,articleController.updateArticle);
+    router.get(&quot;/findArticle&quot;,articleController.findArticle);
+    //导出router模块
+    module.exports = router;
+</div></code></pre>
+</li>
+<li>
+<p>将article.js导出的router对象注册到routes/index.js下</p>
+<pre class="hljs"><code><div>    const router = require('koa-router')()
+    const articleRouter = require('./article');
+    //将所有导入的路由对象加入到数组里
+    const routers = [articleRouter];
+
+    //遍历路由对象的数组
+    routers.forEach((item)=&gt;{
+        //将路由数组里的路由注册到router对象里
+        router.use(item.routes(),item.allowedMethods())
+    })
+    module.exports = router
+</div></code></pre>
+</li>
+<li>
+<p>启动服务器 npm run start, 在浏览器中 输入 http://localhost:3000/findArticle</p>
+</li>
+<li>
+<p>实现新增文章功能</p>
+</li>
+</ol>
+<pre class="hljs"><code><div>exports.addNewArticle = async (ctx)=&gt;{
+    var body = ctx.request.body;
+    var article = new articleModel({
+        title: body.title,
+        pubDate: body.pubDate,
+        authore: body.authore,
+        content: body.content,
+        category: body.category,
+        isPublished: body.isPublished,
+        tags: body.tags
+    });
+    //由于ctx.body无法再回调函数里执行,所以需要使用await和promise
+    //来将异步转换成同步
+    var success = await new Promise((resolve,reject)=&gt;{
+        //将数据保存到数据库中
+        article.save((err,data)=&gt;{
+            if(err)return;
+            resolve(true);
+        })
+    })
+    if(success){
+        //文章插入成功之后,给前端相应的数据
+        responseData = {
+            code: 200,
+            success: true,
+            message: &quot;新增文章成功&quot;,
+            data:{}
+        }
+        //为前端返回结果
+        ctx.body = responseData;
+    }
+}
+
+</div></code></pre>
+<ol start="12">
+<li>
+<p>使用postman对 http://localhost:3000/addNewArticle接口进行测试</p>
+</li>
+<li>
+<p>实现查询文章功能</p>
+</li>
+</ol>
+<pre class="hljs"><code><div>//查询文章
+exports.findArticle = async (ctx)=&gt;{
+    console.log(&quot;查询文章&quot;);
+    // ctx.body = &quot;查询文章&quot;;
+    console.log(ctx.request.query);
+    var query = ctx.request.query;
+    //单页数据行数
+    var pageSize = parseInt(query.pageSize);
+    //页码
+    var pageNo = parseInt(query.pageNo)-1;
+    // 如果get请求还有其他参数,则将这些参数放入到一个对象中,方便到数据中查询
+    var searcObj = {};
+    //从前端请求的参数中获取需要从数据库查询的字段
+	for(var key in query){
+		if(key!=='pageSize'&amp;&amp;key!=='pageNo'){
+			searcObj[key] = query[key];
+		}
+    }
+    var resp = await new Promise((resolve,reject)=&gt;{
+        //分页查询
+       var rs =  articleModel.find(searcObj).skip(pageSize*pageNo).limit(pageSize);
+       rs.then((resp)=&gt;{
+            //获取当前表的文章总数
+            articleModel.count({},function (err, count) {
+                resp.count = count;
+                resolve(resp)
+
+            })
+       })
+    })
+    //响应前端数据
+    ctx.body =  {
+        code: 200,
+        message: '查询成功',
+        data:resp,
+        total: resp.count
+    };;
+    // console.log(searcObj);
+}
+
+</div></code></pre>
+<ol start="14">
+<li>
+<p>使用postman对 http://localhost:3000/findArticle接口进行测试,
+参数为: pageNo,pageSize,
+title: 为空时表示查询所有的文章</p>
+</li>
+<li>
+<p>实现删除文章功能</p>
+</li>
+</ol>
+<pre class="hljs"><code><div>//删除文章
+exports.deleteArticle = async (ctx)=&gt;{
+    var body = ctx.request.body;
+    //根据文章ID删除文章
+    var id = body._id;
+    var rs = new Promise((resolve,reject)=&gt;{
+        articleModel.remove({id:_id},(err,data)=&gt;{
+            if(err){
+                reject(err);
+                return;
+            }
+            resolve(data.ok);
+            return;
+        })
+    })
+    if(rs){
+        ctx.body = {
+            message: '删除文章成功',
+            success: true
+        }
+    }else{
+        ctx.body = {
+            message: '删除违章失败',
+            success: false
+        }
+    }
+}
+
+</div></code></pre>
+<ol start="16">
+<li>
+<p>使用postman对 http://localhost:3000/deleteArticle接口进行测试,
+接口参数是: _id: 文章id</p>
+</li>
+<li>
+<p>实现图片上传接口</p>
+<ol>
+<li>安装依赖</li>
+</ol>
+<pre class="hljs"><code><div>    npm i koa-body -D
+</div></code></pre>
+<ol start="2">
+<li>在mvc/models目录下创建 uploadModel.js文件</li>
+</ol>
+<pre class="hljs"><code><div>    const Schema = require(&quot;../../mongodb.conf&quot;);
+    const mongoose = require(&quot;mongoose&quot;);
+    /**
+    *  fileUrl: String 图片地址
+    *  fileName: String 图片名称
+    */
+    const uploadSchema = new Schema({
+        fileUrl: String,
+        fileName:String
+    })
+
+    module.exports = mongoose.model('upload',uploadSchema);
+</div></code></pre>
+<ol start="3">
+<li>在mvc/controller目录下创建 uploadController.js文件</li>
+</ol>
+<pre class="hljs"><code><div>    const mongoose = require(&quot;mongoose&quot;);
+    const uploadModel = require(&quot;../models/uploadModel&quot;);
+    exports.upload = async (ctx)=&gt;{
+        const files = ctx.request.files.file;
+        var paths = [];
+        // console.log(files);
+        if(files.length){
+            var imagesIndex = files[0].path.indexOf('/images');
+            for(var i=0;i&lt;files.length;i++){
+                var file = files[i];
+                paths.push(file.path.slice(imagesIndex,file.path.length))
+            }
+        }else{
+            console.log(&quot;只有一张图片&quot;);
+            var imagesIndex = files.path.indexOf('/images');
+            paths.push(files.path.slice(imagesIndex,files.path.length))
+        }
+    
+        console.log(paths);
+        ctx.body = {
+            message: '上传成功',
+            imgPaths: paths
+        }
+    }
+</div></code></pre>
+</li>
+</ol>
+
+</body>
+</html>
