@@ -20,6 +20,7 @@ var articleSchema = new Schema({
     isPublished: Boolean,
     tags: Array,
     category: String,
+    shortTitle:String
 })
 
 module.exports = mongoose.model('article',articleSchema);

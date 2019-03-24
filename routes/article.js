@@ -7,5 +7,5 @@
   router.post("/deleteArticle",articleController.deleteArticle);
   router.post("/updateArticle",articleController.updateArticle);
   router.get("/findArticle",articleController.findArticle);
-  
+  router.get("/findArticleByCategory",articleController.findArticleByCategory)
   module.exports = router;

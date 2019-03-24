@@ -15,7 +15,8 @@ exports.addNewArticle = async (ctx)=>{
         content: body.content,
         category: body.category,
         isPublished: body.isPublished,
-        tags: body.tags
+        tags: body.tags,
+        shortTitle:body.shortTitle
     });
     var success = await new Promise((resolve,reject)=>{
         article.save((err,data)=>{
@@ -38,7 +39,6 @@ exports.addNewArticle = async (ctx)=>{
 exports.findArticle = async (ctx)=>{
     console.log("查询文章");
     // ctx.body = "查询文章";
-    console.log(ctx.request.query);
     var query = ctx.request.query;
     //单页数据行数
     var pageSize = parseInt(query.pageSize);
@@ -52,6 +52,7 @@ exports.findArticle = async (ctx)=>{
 			searcObj[key] = query[key];
 		}
     }
+    console.log(searcObj);
     var resp = await new Promise((resolve,reject)=>{
         //分页查询
        var rs =  articleModel.find(searcObj).skip(pageSize*pageNo).limit(pageSize);
@@ -73,7 +74,36 @@ exports.findArticle = async (ctx)=>{
     };;
     // console.log(searcObj);
 }
-
+//根据文章类型查询文章列表,并将文章的名称返回给前端
+exports.findArticleByCategory = async (ctx)=>{
+    var query = ctx.request.query;
+    var category = query.category;
+    var resp = await new Promise((resolve,reject)=>{
+       var searchObject = {}
+       if(category=='all'){
+        searchObject = {}
+       }else{
+        searchObject = {category:category}
+       }
+       console.log(searchObject);
+       var rs =  articleModel.find(searchObject);
+       rs.then((resp)=>{
+           //该类型的文章有
+            resolve(resp);
+       })
+    })
+    // 获取title和pubDate,shortTitle
+    var rs = []
+    resp.forEach((item)=>{
+        var obj = {}
+        obj.title = item.title;
+        obj.pubDate = item.pubDate;
+        obj._id = item._id;
+        obj.shortTitle = item.shortTitle;
+        rs.push(obj);
+    })
+    ctx.body = rs;
+}
 //删除文章
 exports.deleteArticle = async (ctx)=>{
     var body = ctx.request.body;

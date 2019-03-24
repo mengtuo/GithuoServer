@@ -1,4 +1,4 @@
-const Schema = require("../../../../mongodb.conf");
+const Schema = require("../../../mongodb.conf");
 const mongoose = require("mongoose");
 /**
  * 后台用户
