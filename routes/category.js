@@ -4,5 +4,5 @@ const categoryController = require("../mvc/controllers/category/categoryControll
 router.post("/addNewCategory",categoryController.addNewCategory);
 router.post("/deleteCategory",categoryController.deleteCategory);
 router.get("/findCategory",categoryController.findCategory);
-
+router.post("/sortCategory",categoryController.sortCategory);
 module.exports = router;

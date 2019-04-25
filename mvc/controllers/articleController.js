@@ -55,7 +55,7 @@ exports.findArticle = async (ctx)=>{
     console.log(searcObj);
     var resp = await new Promise((resolve,reject)=>{
         //分页查询
-       var rs =  articleModel.find(searcObj).skip(pageSize*pageNo).limit(pageSize);
+       var rs =  articleModel.find(searcObj).sort({_id:-1}).skip(pageSize*pageNo).limit(pageSize);
        rs.then((resp)=>{
             //获取当前表的文章总数
             articleModel.count({},function (err, count) {
@@ -85,7 +85,7 @@ exports.findArticleByCategory = async (ctx)=>{
        }else{
         searchObject = {category:category}
        }
-       console.log(searchObject);
+       console.log("searchObject",searchObject);
        var rs =  articleModel.find(searchObject);
        rs.then((resp)=>{
            //该类型的文章有
@@ -100,7 +100,9 @@ exports.findArticleByCategory = async (ctx)=>{
         obj.pubDate = item.pubDate;
         obj._id = item._id;
         obj.shortTitle = item.shortTitle;
-        rs.push(obj);
+        if(item.isPublished){
+            rs.push(obj);
+        }
     })
     ctx.body = rs;
 }

@@ -60,7 +60,7 @@ const secret = 'githuo_secret';
 //都会检查Header首部中的token,是否存在,是否有效,只有正确之后才能访问
 // app.use(CheckApiToken);
 app.use(jwt({secret}).unless({
-    path: [/^\/admin/,/^\/signin/,/^\/register/,/^\/images/,/^\/findCategory/,/^\/findArticle/,/^\/findUserCount/] //数组中的路径不需要通过jwt验证
+    path: [/^\/admin/,/^\/signin/,/^\/register/,/^\/images/,/^\/findCategory/,/^\/findArticle/,/^\/findUserCount/,/^\/getAccessToken/,/^\/getJsapiTicket/] //数组中的路径不需要通过jwt验证
 }))
 // logger
 app.use(async (ctx, next) => {

@@ -2,15 +2,19 @@ const categoryModel = require("../../models/category/categoryModel");
 
 exports.addNewCategory = async (ctx)=>{
     var body = ctx.request.body;
-    var title = body.title;
-    var iconURL = body.iconURL;
+    var name = body.name;
+    var imgAddr = body.imgAddr;
     var category = new categoryModel({
-        title:title,
-        iconURL:iconURL
+        name:name,
+        imgAddr:imgAddr
     })
     var success = await new Promise((resolve,reject)=>{
         category.save((err,data)=>{
-            if(err)return;
+            if(err){
+                console.log("错误信息",err);
+                return;
+            }
+            console.log("分类");
             resolve(true);
         })
     })
@@ -18,6 +22,11 @@ exports.addNewCategory = async (ctx)=>{
         ctx.body = {
             message:'新增分类成功',
             success:success
+        }
+    }else{
+        ctx.body = {
+            message:'新增分类失败',
+            success:false
         }
     }
 }
@@ -67,4 +76,12 @@ exports.deleteCategory=async(ctx)=>{
             success: false
         }
     }
+}
+// 更新分类,修改一次马上出发该函数
+exports.sortCategory=async(ctx)=>{
+    // 获取index和id,
+    var body = ctx.request.body;
+    // 获取前端发送过来的所有分类数据,然后删除数据库表里所有的数据,再重新插入数据
+
+
 }

@@ -5,6 +5,7 @@ const permissionRouter = require("./system/permissionRouter");
 const roleRouter = require("./system/roleRouter");
 const userRouter = require("./system/userRouter")
 const categoryRouter = require("./category");
+const wxController = require("../mvc/controllers/weixinController");
 //将所有导入的路由对象加入到数组里
 const routers = [articleRouter,uploadRouter,permissionRouter,roleRouter,userRouter,categoryRouter];
 router.get("/",async(ctx)=>{
@@ -19,6 +20,8 @@ router.get("/admin",async(ctx)=>{
     title: '极火网!'
   })
 })
+router.post("/getAccessToken",wxController.getAccessToken)
+// router.post("/getJsapiTicket",wxController.getJsapiTicket)
 //打开login页面的时候,默认注册admin账号,密码为admin
 //遍历路由对象的数组
 routers.forEach((item)=>{
