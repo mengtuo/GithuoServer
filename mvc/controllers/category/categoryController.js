@@ -82,6 +82,18 @@ exports.sortCategory=async(ctx)=>{
     // 获取index和id,
     var body = ctx.request.body;
     // 获取前端发送过来的所有分类数据,然后删除数据库表里所有的数据,再重新插入数据
-
-
+   
+    var categoryList = body.categoryList;
+    await categoryModel.deleteMany()
+    .then((resp)=>{
+        console.log(resp);
+        categoryModel.insertMany(categoryList)
+        .then((res)=>{
+            console.log("结果",res);
+        }) 
+    })
+    ctx.body = {
+        message:'更新成功',
+        success: true,
+    }
 }
